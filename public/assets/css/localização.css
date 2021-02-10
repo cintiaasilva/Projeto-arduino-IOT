@@ -1,0 +1,16 @@
+
+#mapa {
+    height: 500px;
+    width: 900px;
+    margin-left: 250px;    
+}
+.menu-navigation-round{
+    height: 20px;
+    color: rgb(26, 127, 194);
+    margin-top: 0;
+
+}
+
+h1{
+    font-family: 'Arsenal', sans-serif;
+}

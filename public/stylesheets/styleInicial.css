@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+} 
+
+header{
+    background-image: url(img/fundo1.jpg);
+    background-repeat: no-repeat;
+    border-top: 6px solid rgb(221, 214, 214) ;
+    overflow: auto;
+    background-size: 1500px 600px;
+    
+}
+
+header >div{
+    height: 500px;
+    margin-top: 80px;
+}
+
+h1{
+    font-size: 45px;
+    margin: 0;
+    margin-left: 100px;
+    font-family: 'Pacifico',' cursive';
+    display: flex;
+    color: white;
+}
+
+h2{
+    font-size: 20px;
+}
+
+p{
+    font-size: 15px;
+}
+
+h1>label{
+    color: white;
+    font-size: 20px;
+}
+
+.primeira{
+    background-color:white;
+    /* display: flex;
+    flex-direction: column; */
+    
+}
+
+section > div{
+    width: 20vw;
+} 
+
+.logo{
+background-color:rgb(221, 214, 214);
+border-radius: 50px;
+padding: 15px;
+}
+
+.user{
+background-color:rgb(221, 214, 214);
+border-radius: 50px;
+padding: 15px;
+}
+
+
+.conta{
+    background-color:rgb(221, 214, 214);
+border-radius: 50px;
+padding: 15px;
+}
+
+
+
+@media(min-width:992px){
+    .primeira{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+         padding: 40px; 
+        align-items: center;
+}
+header{
+    padding: 30px;
+    display: flex;
+    
+}
+
+header>div{
+     margin: 2px 0 0 5px;  
+    max-width: 500px;
+
+}
+
+.fundo{
+    width: 5000px;
+    height: 400px;
+}
+}

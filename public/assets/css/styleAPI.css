@@ -1,0 +1,155 @@
+
+
+html, body{
+  height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(11, 12, 12);
+   
+}
+
+h2{
+
+  margin-top: 80px;
+  color: rgb(0, 39, 83);
+  font-family: 'Anaheim', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+li{
+  list-style: none;
+}
+
+a, a:link, a:hover, a:visited, a:hover  {
+  text-decoration: none;
+  color: rgb(223, 219, 219);
+}
+
+ .clear{ 
+  clear: both;
+  display: none;
+}
+
+ .header { 
+  text-align: center;
+  font-size: 30px;
+}
+
+.value{
+  height: 3em;
+  text-align: center;
+  border:0;
+color:rgb(51, 50, 49);
+}
+
+#currentIntake {
+  font-size: 2em;
+  line-height: 2em;
+  font-weight: bold;
+  
+  
+}
+
+.button-list{
+  /* overflow: auto; */
+   padding: 0 30em; 
+  justify-content: space-around; 
+  margin-bottom: 20px;
+  display: list-item;
+  align-items: center;
+}
+
+
+.btn {
+  display: inline-block;
+  font-weight: bold;
+  width: 32%;
+  height: 1.75em;
+  background-color: rgba(43, 72, 126, 0.911);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: .75em;
+  box-sizing: border-box;
+  text-align: center; 
+  float: left;
+
+  
+}
+
+.btn-middle {
+  color: white;
+  height: 3.5em;
+  padding: .75em 0;
+  border-radius: 0;
+  
+}
+
+
+
+ .btn-right{
+    border-radius: 0 1em 1em 0;
+    font-size: 2em;
+    padding: 0.25em 0;
+    
+    
+  
+ }
+
+
+ .btn-left{
+   border-radius: 1em 0 0 1em;
+   font-size:2em;
+   padding: 0.25em 0;
+   
+ }
+
+.btn-submit{
+  height: 3.3em;
+  width: 96%;
+  margin-bottom: 10px;
+  border-radius: 1em; 
+  padding: 1em 0;
+  background-color: rgba(43, 72, 126, 0.911);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 1.5em;
+  
+}
+
+.btn-settings{
+  float: right;
+  height: 3.5em;
+  width: 3.5em;
+  margin: 0;
+}
+
+
+
+ 
+
+ div.copop { 
+  float: left;
+  width: 15%;
+  padding: 5px;
+  margin: 0px 10px 10px 0;
+  vertical-align: 30%;
+  font-style: italic;  
+  font-size: 20px;
+  text-align: center;
+}
+div.copog { 
+  float: right;
+  width: 15%;
+  padding: 5px;
+  margin: 0px 10px 10px 0;
+  vertical-align: 30%;
+  font-style: italic;  
+  font-size: 20px;
+  text-align: center;
+}
+body {
+  background-size: 110% 110%;
+  background-repeat: no-repeat; 
+  background-color:white;
+  background-image: linear-gradient(rgba(249, 253, 253, 0.925),
+  rgba(218, 221, 221, 0.952));
+}

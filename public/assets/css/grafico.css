@@ -1,0 +1,121 @@
+body {
+    background:white;
+    background-image: linear-gradient(rgba(249, 253, 253, 0.925),
+    rgba(218, 221, 221, 0.952));
+
+    font-family: 'Anaheim', sans-serif;
+    font-weight: bold;
+}
+
+.menu-navigation-round{
+    height: 20px;
+    color: rgb(209, 71, 156);
+    padding-top: 20px;
+    
+    
+
+}
+
+/* GRAFICOS */
+.conteudo{
+    font-family: 'Anaheim', sans-serif;
+    width: 50%;
+    position: relative;
+    border: 0.5px solid  rgba(194, 207, 219, 0.726);
+    float: left;
+}
+#chart{
+    background-color: rgba(224, 168, 45, 0.685);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top:50px;
+    border-radius: 20px;
+
+}
+#chart1{
+    background-color: rgba(107, 182, 243, 0.774);
+    margin-top:50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+/* MAXIMAS E MINIMAS */
+.MAX-MIN{
+    font-family: 'Anaheim', sans-serif;
+   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    position: relative;
+    float: right;
+}
+#mxTemp{
+    background-color:  rgba(185, 185, 185, 0.76);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top: 0.5px solid   rgba(185, 185, 185, 0.76);
+    border-left: 0.5px solid   rgba(185, 185, 185, 0.76);
+    border-right: 0.5px solid    rgba(185, 185, 185, 0.76);
+    margin-top:-10px;
+   
+}
+#mxUmi{
+    background-color:  rgba(185, 185, 185, 0.76);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-left: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-right: 0.5px solid rgba(185, 185, 185, 0.76);
+    margin-top:-10px;
+}
+/* MEDIAS */
+.MEDIAS{
+    font-family: 'Anaheim', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 0 0 3px rgb(0, 39, 83);
+    width: 50%;
+    position: relative;
+    float: right;
+    text-align: center;
+    margin-top:70px;
+}
+/* QUARTILS */
+.QUARTIL{
+    font-family: 'Anaheim', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+    width: 50%;
+    position: relative;
+    float: right;
+}
+#qrTemp{
+    background-color: rgba(185, 185, 185, 0.76);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-left: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-right: 0.5px solid rgba(185, 185, 185, 0.76);
+ 
+}
+#qrUmi{
+    background-color: rgba(185, 185, 185, 0.76);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-left: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-right: 0.5px solid rgba(185, 185, 185, 0.76);
+}
+/* MEDIANAS */
+.MEDIANA{
+    font-family: 'Anaheim', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    position: relative;
+    float: right;
+}
+#medTemp{
+    background-color: rgba(185, 185, 185, 0.76);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-left: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-right: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-bottom:  rgba(185, 185, 185, 0.76);
+}
+#medUmi{
+    background-color: rgba(185, 185, 185, 0.76);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-left: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-right: 0.5px solid rgba(185, 185, 185, 0.76);
+    border-bottom:  rgba(185, 185, 185, 0.76);
+}

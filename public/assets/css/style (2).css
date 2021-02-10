@@ -1,0 +1,148 @@
+/* Styles go here */
+
+html, body{
+  height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HELPER
+div{
+  border: 1px solid black;
+}*/
+
+li{
+  list-style: none;
+}
+
+a, a:link, a:hover, a:visited, a:hover  {
+  text-decoration: none;
+  color: white;
+}
+
+ .clear{ 
+  clear: both;
+  display: none;
+}
+
+ .header { 
+  text-align: center;
+  font-size: 30px;
+}
+
+.value{
+  height: 3em;
+  text-align: center;
+  border:0;
+color: rgb(30, 42, 206);
+}
+
+#currentIntake {
+  font-size: 2em;
+  line-height: 2em;
+  font-weight: bold;
+  
+  
+}
+
+.button-list{
+  /* overflow: auto; */
+   padding: 0 30em; 
+  justify-content: space-around; 
+  margin-bottom: 20px;
+  display: list-item;
+  align-items: center;
+}
+
+
+.btn {
+  display: inline-block;
+  font-weight: bold;
+  width: 32%;
+  height: 1.75em;
+  background-color: #3A41FF;
+  margin-bottom: .75em;
+  box-sizing: border-box;
+  text-align: center; 
+  float: left;
+
+  
+}
+
+.btn-middle {
+  color: #c6c6c6;
+  height: 3.5em;
+  padding: .75em 0;
+  
+  
+}
+
+.btn:active {
+}
+
+.btn-intake{
+}
+
+ .btn-right{
+    border-radius: 0 1em 1em 0;
+    font-size: 2em;
+    padding: 0.25em 0;
+    
+  
+ }
+
+
+ .btn-left{
+   border-radius: 1em 0 0 1em;
+   font-size:2em;
+   padding: 0.25em 0;
+   
+ }
+
+.btn-submit{
+  height: 3.3em;
+  width: 96%;
+  margin-bottom: 10px;
+  border-radius: 1em; 
+  padding: 1em 0;
+  background-color: red;
+  font-size: 1.5em;
+  
+}
+
+.btn-settings{
+  float: right;
+  height: 3.5em;
+  width: 3.5em;
+  margin: 0;
+}
+
+
+
+   .btn-intake-middle{
+ 
+}
+
+ div.copop { 
+  float: left;
+  width: 15%;
+  padding: 5px;
+  margin: 0px 10px 10px 0;
+  vertical-align: 30%;
+  font-style: italic;  
+  font-size: 20px;
+  text-align: center;
+}
+div.copog { 
+  float: right;
+  width: 15%;
+  padding: 5px;
+  margin: 0px 10px 10px 0;
+  vertical-align: 30%;
+  font-style: italic;  
+  font-size: 20px;
+  text-align: center;
+}
+body {
+  background-size: 110% 110%;
+  background-repeat: no-repeat;
+}

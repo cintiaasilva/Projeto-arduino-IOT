@@ -1,0 +1,14 @@
+{
+    "database": {
+        "server": "time7.database.windows.net", 
+        "user": "bandtec",
+        "password": "Timesete123",
+        "database": "Time7",
+        "options": {
+            "encrypt": true
+        }
+    },
+    "security": {
+        "key": "CHAVE_SEGURANCA"
+    }
+}

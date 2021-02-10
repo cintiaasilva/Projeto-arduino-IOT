@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-br; en" id="home">
+    <head>
+		<title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="assets/slicknav/jquery.slicknav.min.js"></script>
+		
+		
+		<link rel="stylesheet" href="assets/demo.css">
+		<link rel="stylesheet" href="assets/css/navigation-round.css">
+		<link rel="stylesheet" href="assets/slicknav/slicknav.min.css">
+		<link rel="stylesheet" href="grafico.css">
+
+
+	
+
+        <!-- jQuery --> 
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/jquery-ui.js"></script>
+
+        <!-- Popper -->
+        <script src="assets/js/popper.min.js"></script>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <script src="assets/js/bootstrap.js"></script>
+
+        <!-- Font Awesome -->
+        <!-- <link rel="stylesheet" href="assets/css/font-awesome.css"> -->
+		<script src="assets/js/7df7e1332b.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+
+        <!-- FONTS  -->
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/jquery-ui.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/grafico.css">
+
+		<!-- Google Chart Library -->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    	<script src="https://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+		<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+		
+	</head>
+	<body id="body" onload="load()">
+	<nav class="menu-navigation-round">
+		<a href="home.html">Home</a>
+		<a href="indexNovo.html"class="selected">Gráfico</a>
+		<a href="agua.html">Água</a>
+		<a href="localizaçao.html" >Localização</a>
+	</nav>
+
+	
+	<!-- nome dos campos onde aparecem as consultas feitas no script de leitura -->
+	<h2 class="MEDIAS">
+		Umidade Média:
+		<label id='averageUmi'>
+			0.00
+		</label>
+		%
+	</h2>
+	<h2 class="MEDIAS">
+		Temperatura Média:
+		<label id='averageTemp'>
+			0.00
+		</label>
+		°C
+	</h2>
+
+	<br>
+
+	<div class="MAX-MIN" id="mxUmi">
+		<p>
+			Umidade máxima: <b id="maximaUmi"></b>
+		</p>
+		<p>
+			Umidade mínima: <b id="minimaUmi"></b>
+		</p>
+	</div>
+	<div class="MAX-MIN" id="mxTemp">
+		<p>
+			Temperatura máxima: <b id="maximaTemp"></b>
+		</p>
+		<p>
+			Temperatura mínima: <b id="minimaTemp"></b>
+		</p>
+	</div>
+	<div class="QUARTIL" id="qrUmi">
+		<p>
+			Quartil 1 U: <b id="1quartilUmi"></b>
+		</p>
+		<p>
+			Quartil 3 U: <b id="3quartilUmi"></b>
+		</p>
+	</div>
+	<div class="QUARTIL" id="qrTemp">
+		<p>
+			Quartil 1: <b id="1quartilTemp"></b>
+		</p>
+		<p>
+			Quartil 3: <b id="3quartilTemp"></b>
+		</p>
+	</div>
+	<div class="MEDIANA" id="medUmi">
+		<p id="medianas"></p>
+		<p>
+			Mediana: <b id="medianaUmi"></b>
+		</p>
+	</div>
+	<div class="MEDIANA" id="medTemp">
+		<p id="medianas"></p>
+		<p>
+			Mediana: <b id="medianaTemp"></b>
+		</p>
+	</div>
+
+<!-- fim dos nomes -->
+
+<!-- id dos graficos= chart e chart1 -->
+	<div class="conteudo">
+		<canvas id="chart"></canvas>
+	</div>
+	<div class="conteudo">
+		<canvas id="chart1"></canvas>
+	</div>
+
+	<div class="footer">
+	<script>
+	
+	window.onload = function load() {
+		loadData();
+		loadData1();
+	};
+
+		//PEGA O ID DO GRAFICO E ADICIONA O TAMANHO E LARGURA
+		
+		var context = document.getElementById("chart").getContext("2d");
+		context.canvas.width = 1000;
+		context.canvas.height = 300;
+		
+
+		var context1 = document.getElementById("chart1").getContext("2d");
+		context1.canvas.width = 1000;
+		context1.canvas.height = 300;
+
+		
+
+		// CONFIGURAÇÃO DO GRAFICO
+        var configuration = {
+			
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "Temperatura x Time",
+					type: 'line',
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						//type: 'value',
+						distribution: 'series',
+                        ticks: {
+                            beginAtZero:true
+                        }
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Temperatura'
+							
+                        },
+                        ticks: {
+                            beginAtZero:true
+                        }
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+        };
+		
+		var configuration1 = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "umidade x Time",
+					type: 'line',
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						//type: 'value',
+						distribution: 'series',
+                        ticks: {
+                            beginAtZero:true
+                        }
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'umidade'
+                        },
+                        ticks: {
+                            beginAtZero:true
+                        }
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+        };
+		
+		
+		
+        // PEGA O GRAFICO E A CONFIGURAÇÃO DELE
+		var chart = new Chart(context, configuration);
+		var chart1 = new Chart(context1, configuration1);
+
+	
+	// declaramos as funcoes que temos na pagina aqui 
+	setInterval(carregarMedias, 2500);
+	setInterval(carregarMedianas, 2500);
+	setInterval(carregarMedianas1, 2500);
+	setInterval(carregar1quartilTemp, 2500);
+	setInterval(carregar3quartilTemp, 2500);
+	setInterval(carregar1quartilUmi, 2500);
+	setInterval(carregar3quartilUmi, 2500);
+	setInterval(carregarMinimas, 2500);
+	setInterval(carregarMaximas, 2500);
+	setInterval(loadData, 2500);
+	setInterval(loadData1, 2500);
+
+        function loadData(){ //carrega, adiciona  e atualiza os dados
+			$.ajax({
+			cache: false,
+			method: "get",
+			url: "/leitura/ultimasTemp",
+			success: function (data) {
+				console.log(data);
+				var hora = data.hora.slice(0).reverse();
+				var temp = data.temp;
+			
+				var i = 0;
+				
+				var _lastIndexTemp= this.lastIndexTemp;
+				this.lastIndexTemp= data.temp.length;
+				listTemp= data.temp.slice(_lastIndexTemp).reverse();
+
+				
+
+				listTemp.forEach(data => { //executa o array
+                //Máximo de 60 itens exibidos no gráfico
+                if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){ //permite 10 dados
+                    chart.data.labels.shift(); //corta o ultimo
+                    chart.data.datasets[0].data.shift();
+                }
+
+                chart.data.labels.push(hora[i]); //adiciona o momento
+                chart.data.datasets[0].data.push(parseFloat(data));//adiciona novos dados
+				chart.update(); //atualiza
+				i++ //incrementa
+			});
+
+				
+
+		},
+		error: function(e){
+
+			console.log("erro:", e);
+		}
+	});
+
+		}
+
+		function loadData1(){ //carrega, adiciona  e atualiza os dados
+			$.ajax({
+			cache: false,
+			method: "get",
+			url: "/leitura/ultimasUmi",
+			success: function (data) {
+				console.log(data);
+				var hora = data.hora.slice(0).reverse();
+				var umi = data.umi;
+			
+				var i = 0;
+				
+				var _lastIndexUmi= this.lastIndexUmi;
+				this.lastIndexUmi= data.umi.length;
+				listUmi= data.umi.slice(_lastIndexUmi).reverse();
+
+				
+
+				listUmi.forEach(data => { //executa o array
+                //Máximo de 60 itens exibidos no gráfico
+                if (chart1.data.labels.length == 10 && chart1.data.datasets[0].data.length == 10){ //permite 10 dados
+                    chart1.data.labels.shift(); //corta o ultimo
+                    chart1.data.datasets[0].data.shift();
+                }
+
+                chart1.data.labels.push(hora[i]); //adiciona o momento
+                chart1.data.datasets[0].data.push(parseFloat(data));//adiciona novos dados
+				chart1.update(); //atualiza
+				i++ //incrementa
+			});
+
+				
+
+		},
+		error: function(e){
+
+			console.log("erro:", e);
+		}
+	});
+
+		}
+
+        function carregarMedias(){ // função para exibir as medias
+
+            $.ajax({
+			cache: false,
+			method: "get",
+			url: "/leitura/medias",
+			success: function (data) {
+				$('#averageTemp').html(data.temperatura);
+				$('#averageUmi').html(data.umidade);
+			},
+			error: function (e) {
+				console.log("Erro:", e);
+			}
+		});
+	}
+
+	function carregarMaximas(){ // função para exibir as maximas na TELA
+
+		$.ajax({
+		cache: false,
+		method: "get",
+		url: "/leitura/maximas",
+		success: function (data) {
+			$('#maximaTemp').html(data.temperatura);
+			$('#maximaUmi').html(data.umidade);
+		
+		},
+		error: function (e) {
+			console.log("Erro:", e);
+		}
+	});
+}
+
+function carregarMinimas(){ // função para exibir as minimas na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/minimas",
+success: function (data) {
+
+	$('#minimaTemp').html(data.temperatura);
+	$('#minimaUmi').html(data.umidade);
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+function carregarMedianas(){ // função para exibir as medianas de temperatura na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/medianaTemp",
+success: function (data) {
+
+	$('#medianaTemp').html(data.temperatura);
+	
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+function carregarMedianas1(){ // função para exibir as medianas de umidade na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/medianaUmi",
+success: function (data) {
+
+	$('#medianaUmi').html(data.umidade);
+	
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+function carregar1quartilTemp(){ // função para exibir o primeiro quartil da temperatura na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/quartil1Temp",
+success: function (data) {
+
+	$('#1quartilTemp').html(data.temperatura);
+	
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+function carregar1quartilUmi(){ // função para exibir o primeiro quartil da umidade na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/quartil1Umi",
+success: function (data) {
+
+	$('#1quartilUmi').html(data.umidade);
+	
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+function carregar3quartilTemp(){ // função para exibir o terceiro quartil da temperatura na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/quartil3Temp",
+success: function (data) {
+
+	$('#3quartilTemp').html(data.temperatura);
+	
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+function carregar3quartilUmi(){ // função para exibir o terceiro quartil da umidade na TELA
+
+$.ajax({
+cache: false,
+method: "get",
+url: "/leitura/quartil3Umi",
+success: function (data) {
+
+	$('#3quartilUmi').html(data.umidade);
+	
+},
+error: function (e) {
+	console.log("Erro:", e);
+}
+});
+}
+
+
+</script>
+
+</body>
+
+</html>

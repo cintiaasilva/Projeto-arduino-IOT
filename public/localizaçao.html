@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="assets/slicknav/jquery.slicknav.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+    <link rel="stylesheet" href="localização.css">
+    <title>Localização</title>
+    <link rel="stylesheet" href="assets/demo.css">
+    <link rel="stylesheet" href="assets/css/navigation-round.css">
+    <link rel="stylesheet" href="assets/slicknav/slicknav.min.css">
+</head>
+
+<body style="height: 100%;">
+
+
+    <nav class="menu-navigation-round">
+        <a href="home.html">Home</a>
+        <a href="indexNovo.html">Gráfico</a>
+        <a href="agua.html">Água</a>
+        <a href="localizaçao.html" class="selected">Localização</a>
+    </nav>
+    <h1>Localização <img src="./images/icone-localizacao.png" alt="icone" width="50px" height="50px"></h1>    
+    
+
+    <div class="menu">
+    
+    <div id="mapa"></div>
+
+
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <script>
+
+ 
+
+        var mymap = L.map('mapa').setView([-23.558016, -46.661706099999996], 18);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoiamVubmljb3N0YSIsImEiOiJjam9ya3o1bmYwMGdyM2tzZmw5OTJrcXNlIn0.1xohWXdtQGHiATVrtaJevw'
+        }).addTo(mymap);
+
+        L.marker([-23.558016, -46.661706099999996]).addTo(mymap)
+            .bindPopup('Sua localização')
+            .openPopup();
+
+    </script>
+</body>
+
+</html>

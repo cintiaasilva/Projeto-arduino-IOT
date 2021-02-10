@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://colorlib.com/etc/lf/Login_v9/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Login</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/j" href="https://colorlib.com/etc/lf/Login_v9/images/icons/favicon.ico">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./Login V9_files/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./Login V9_files/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./Login V9_files/util.css">
+	<link rel="stylesheet" type="text/css" href="./Login V9_files/main.css">
+<!--===============================================================================================-->
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/jquery-ui.min.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+	<div class="container-login100" style="background-image: url('/images/fundo1.jpg');">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+			<form class="login100-form validate-form" id="formLogin" onsubmit="return autenticar()" method="POST">
+				<span class="login100-form-title p-b-37">
+					Login
+				</span>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Digite seu email">
+					<input class="input100" type="text" name="username" placeholder="Digite seu email" >
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate="Digite sua senha">
+					<input class="input100" type="password" name="pass" placeholder="Digite sua senha" >
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					
+						<input name="Entrar" type="submit" class = "login100-form-btn"value="Entrar">
+					</div> <br><br><br><br><br>
+
+				<a href="EsqueceuSenha.html" class="ls-login-forgot">Esqueceu sua senha?</a> <br><br>
+
+
+
+			</form>
+<span id="span_mensagem" style="display: none;">Login ou senha inválida</span>
+
+		</div>
+	</div>
+</body></html>
+
+<script>
+	function autenticar() {
+		var dados = $('#formLogin').serialize();
+		$.ajax({
+				url : "login",
+				type: 'POST',
+				data : dados
+		}) 
+		.done(function(resposta){ 
+			window.location.href='home.html';
+		})
+		.fail(function(jqXHR, textStatus){ 
+			$('#span_mensagem').show();
+		});
+		return false;  
+	}
+	         
+</script>
